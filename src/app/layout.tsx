@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Hind } from "next/font/google";
+import { FloatingNav } from "@/components/floating-nav";
 import { APP_NAME } from "@/lib/config";
 import "./globals.css";
 
@@ -20,8 +21,11 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${hind.variable} h-full antialiased`}>
-      <body className="flex min-h-full flex-col font-sans">{children}</body>
+    <html lang="en" data-scroll-behavior="smooth" className={`${hind.variable} h-full antialiased`}>
+      <body className="flex min-h-full flex-col font-sans">
+        <FloatingNav />
+        {children}
+      </body>
     </html>
   );
 }

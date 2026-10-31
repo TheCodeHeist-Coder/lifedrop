@@ -69,33 +69,10 @@ const secondaryLink =
 export default function LandingPage() {
   return (
     <div className={`${fraunces.variable} ${tiro.variable} flex-1 overflow-x-clip`}>
-      <header className="sticky top-0 z-20 border-b border-line/60 bg-paper/85 backdrop-blur">
-        <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-          <Link href="/" className="flex items-center gap-2 text-lg font-bold tracking-tight">
-            <Drop className="size-6" />
-            {APP_NAME}
-          </Link>
-          <div className="flex items-center gap-5">
-            <a href="#how" className="hidden font-medium text-muted hover:text-ink sm:block">
-              How it works
-            </a>
-            <Link href="/donate" className="hidden font-medium text-muted hover:text-ink sm:block">
-              Become a donor
-            </Link>
-            <Link
-              href="/request"
-              className="rounded-full bg-blood px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blood-deep"
-            >
-              Find a donor
-            </Link>
-          </div>
-        </nav>
-      </header>
-
       <main>
         <section className="relative">
           <div className="hero-glow absolute inset-0 -z-10" />
-          <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 pb-16 pt-12 sm:px-6 lg:grid-cols-[1.05fr_1fr] lg:gap-14 lg:pb-24 lg:pt-20">
+          <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 pb-16 pt-28 sm:px-6 sm:pt-32 lg:grid-cols-[1.05fr_1fr] lg:gap-14 lg:pb-24 lg:pt-36">
             <div className="rise">
               <h1 className="font-display text-[2.9rem] font-medium leading-[1.06] tracking-[-0.02em] text-ink sm:text-6xl lg:text-[4.4rem]">
                 No one should search for blood alone.
@@ -156,7 +133,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section id="how" className="scroll-mt-20 bg-sand">
+        <section id="how" className="bg-sand">
           <div className="reveal mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:py-24">
             <SectionLabel>How it works</SectionLabel>
             <h2 className="mt-3 max-w-2xl font-display text-4xl font-medium leading-[1.12] tracking-[-0.015em] sm:text-5xl">

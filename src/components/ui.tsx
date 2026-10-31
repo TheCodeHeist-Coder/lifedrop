@@ -1,23 +1,5 @@
-import Link from "next/link";
 import type { ReactNode } from "react";
 import { BLOOD_GROUPS, type BloodGroup } from "@/lib/blood";
-import { APP_NAME } from "@/lib/config";
-
-export function SiteHeader() {
-  return (
-    <header className="mx-auto flex w-full max-w-xl items-center justify-between px-4 py-4">
-      <Link href="/" className="flex items-center gap-2 text-lg font-bold tracking-tight">
-        <svg viewBox="0 0 32 32" className="size-6" aria-hidden="true">
-          <path fill="var(--blood)" d="M16 2.5c-1 1.6-10 11.4-10 18a10 10 0 0 0 20 0c0-6.6-9-16.4-10-18Z" />
-        </svg>
-        {APP_NAME}
-      </Link>
-      <Link href="/donate" className="text-sm font-semibold text-blood underline-offset-4 hover:underline">
-        Become a donor
-      </Link>
-    </header>
-  );
-}
 
 export const inputClass =
   "w-full rounded-xl border border-line bg-card px-4 py-3 text-base text-ink placeholder:text-muted/70 focus:border-blood focus:outline-none";
