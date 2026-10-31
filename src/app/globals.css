@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  --paper: #faf6f1;
+  --card: #ffffff;
+  --ink: #211a18;
+  --muted: #6b5e58;
+  --line: #e6dcd3;
+  --blood: #b4162c;
+  --blood-deep: #8e0f22;
+  --blood-soft: #fbe9e9;
+  --leaf: #0f7a4f;
+  --leaf-soft: #e3f4ec;
+  --amber: #805000;
+  --amber-soft: #fcf0da;
+  --blush: #f6e4de;
+  --rose: #d98a8f;
+  --sand: #f4ece2;
+  --wine: #4a1420;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-blood: var(--blood);
+  --color-blood-deep: var(--blood-deep);
+  --color-blood-soft: var(--blood-soft);
+  --color-leaf: var(--leaf);
+  --color-leaf-soft: var(--leaf-soft);
+  --color-amber: var(--amber);
+  --color-amber-soft: var(--amber-soft);
+  --color-blush: var(--blush);
+  --color-sand: var(--sand);
+  --color-wine: var(--wine);
+  --font-sans: var(--font-hind), system-ui, sans-serif;
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-hindi: var(--font-tiro), var(--font-hind), serif;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 3px solid var(--blood);
+  outline-offset: 2px;
+}
+
+@keyframes search-ring {
+  from {
+    opacity: 0.55;
+    transform: scale(0.82);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.12);
+  }
+}
+
+.search-ring {
+  animation: search-ring 2.4s ease-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .search-ring {
+    animation: none;
+    opacity: 0.25;
+  }
+}
+
+/* Landing page. Everything here moves slowly on purpose, and everything has a
+   finished still state for people who ask for less motion. */
+
+.font-display {
+  font-variation-settings: "SOFT" 100;
+}
+
+.hero-glow {
+  background:
+    radial-gradient(60% 70% at 82% 30%, var(--blush) 0%, transparent 70%),
+    radial-gradient(40% 50% at 10% 0%, var(--sand) 0%, transparent 70%);
+}
+
+@keyframes ripple {
+  from {
+    opacity: 0.32;
+    transform: scale(0.16);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes donor-reply {
+  0%,
+  30% {
+    opacity: 0;
+  }
+  38%,
+  88% {
+    opacity: 1;
+  }
+  96%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ripple {
+  opacity: 0;
+  animation: ripple 10.5s ease-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.float-slow {
+  animation: float-slow 7s ease-in-out infinite;
+}
+
+.donor-accept,
+.donor-link {
+  opacity: 0;
+  animation: donor-reply 14s ease-in-out infinite;
+}
+
+.donor-yes-2 {
+  animation-delay: 4s;
+}
+
+.rise {
+  animation: rise 0.9s ease-out both;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 32%;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ripple,
+  .float-slow,
+  .rise {
+    animation: none;
+  }
+
+  .ripple {
+    opacity: 0.12;
+  }
+
+  .donor-accept,
+  .donor-link {
+    animation: none;
+    opacity: 1;
+  }
+}
