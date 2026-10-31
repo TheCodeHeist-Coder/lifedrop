@@ -5,16 +5,16 @@ import { Pool, types, type PoolClient, type QueryResultRow } from "pg";
 types.setTypeParser(1082, (value) => value);
 
 declare global {
-  var raktdootPool: Pool | undefined;
+  var lifedropPool: Pool | undefined;
 }
 
 function pool(): Pool {
   if (!process.env.DATABASE_URL) throw new Error("DATABASE_URL is not set");
-  globalThis.raktdootPool ??= new Pool({
+  globalThis.lifedropPool ??= new Pool({
     connectionString: process.env.DATABASE_URL,
     max: Number(process.env.DATABASE_POOL_SIZE ?? 6),
   });
-  return globalThis.raktdootPool;
+  return globalThis.lifedropPool;
 }
 
 export type Queryable = Pick<PoolClient, "query">;
@@ -60,6 +60,6 @@ export function transaction<T>(work: (client: PoolClient) => Promise<T>): Promis
 }
 
 export async function closePool(): Promise<void> {
-  await globalThis.raktdootPool?.end();
-  globalThis.raktdootPool = undefined;
+  await globalThis.lifedropPool?.end();
+  globalThis.lifedropPool = undefined;
 }

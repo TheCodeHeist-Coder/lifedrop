@@ -344,7 +344,7 @@ describe.skipIf(!process.env.DATABASE_URL)("coordinator on a real database", () 
     const real = await addDonor({ km: 2, simulated: false });
 
     await newRequest();
-    await globalThis.raktdootSendQueue;
+    await globalThis.lifedropSendQueue;
 
     expect(twilioCreate).toHaveBeenCalledTimes(1);
     expect(twilioCreate.mock.calls[0][0].to).toBe(`whatsapp:${real}`);
@@ -362,7 +362,7 @@ describe.skipIf(!process.env.DATABASE_URL)("coordinator on a real database", () 
     });
 
     await Promise.all([1, 2, 3].map(() => sendWhatsApp({ to: "+919999999999", body: "x" })));
-    await globalThis.raktdootSendQueue;
+    await globalThis.lifedropSendQueue;
     await query(`DELETE FROM messages WHERE phone = '+919999999999'`);
 
     expect(sentAt).toHaveLength(3);
@@ -378,7 +378,7 @@ describe.skipIf(!process.env.DATABASE_URL)("coordinator on a real database", () 
     const backup = await addDonor({ km: 10 });
 
     const id = await newRequest();
-    await globalThis.raktdootSendQueue;
+    await globalThis.lifedropSendQueue;
     await recordDeliveryStatus("SMfail", "undelivered", "63015");
     await advanceRequest(id);
 
@@ -395,7 +395,7 @@ describe.skipIf(!process.env.DATABASE_URL)("coordinator on a real database", () 
     await addDonor({ km: 1, simulated: false });
 
     const id = await newRequest();
-    await globalThis.raktdootSendQueue;
+    await globalThis.lifedropSendQueue;
 
     expect((await view(id)).counts.failed).toBe(1);
   });

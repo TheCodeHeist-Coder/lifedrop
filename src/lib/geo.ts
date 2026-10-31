@@ -65,7 +65,7 @@ export async function geocode(text: string): Promise<LatLng | null> {
     url.searchParams.set("format", "jsonv2");
     url.searchParams.set("limit", "1");
     const response = await fetch(url, {
-      headers: { "User-Agent": "RaktDoot/0.1 (hackCBS 9.0 project)" },
+      headers: { "User-Agent": "lifeDrop/0.1 (hackCBS 9.0 project)" },
       signal: AbortSignal.timeout(4000),
     });
     if (!response.ok) return null;

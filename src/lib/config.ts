@@ -1,4 +1,4 @@
-export const APP_NAME = "RaktDoot";
+export const APP_NAME = "lifeDrop";
 
 export const ERAKTKOSH_URL = "https://eraktkosh.mohfw.gov.in/eraktkoshPortal/";
 

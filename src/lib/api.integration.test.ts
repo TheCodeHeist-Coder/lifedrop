@@ -13,7 +13,7 @@ import { config } from "./config";
 import { closePool, query } from "./db";
 
 const TOKEN = "test-auth-token";
-const PUBLIC_URL = "https://raktdoot.example";
+const PUBLIC_URL = "https://lifedrop.example";
 const DONOR_PHONE = "+919999900001";
 const FAMILY_PHONE = "+919999900002";
 const SEA = { lat: 12.0, lng: 62.0 };

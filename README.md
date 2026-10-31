@@ -1,6 +1,6 @@
-# RaktDoot
+# lifeDrop
 
-Finds blood donors for a family in an emergency. Give a blood group and location, or paste the forwarded WhatsApp appeal. RaktDoot contacts nearby compatible, eligible donors on WhatsApp in widening waves, and shows the family who is coming.
+Finds blood donors for a family in an emergency. Give a blood group and location, or paste the forwarded WhatsApp appeal. lifeDrop contacts nearby compatible, eligible donors on WhatsApp in widening waves, and shows the family who is coming.
 
 Built for hackCBS 9.0, HealthTech. **Final submission: Sunday 1 November, 12:00 PM.** Submissions open at 10:00 AM.
 
@@ -9,7 +9,7 @@ Built for hackCBS 9.0, HealthTech. **Final submission: Sunday 1 November, 12:00 
 Needs Node 24 and Docker.
 
 ```bash
-docker run -d --name raktdoot-yb -p 127.0.0.1:5433:5433 yugabytedb/yugabyte:2026.1.2.0-b137 \
+docker run -d --name lifedrop-yb -p 127.0.0.1:5433:5433 yugabytedb/yugabyte:2026.1.2.0-b137 \
   bin/yugabyted start --background=false --ui=false
 
 cp .env.example .env.local

@@ -10,7 +10,7 @@ type Outgoing = {
 };
 
 declare global {
-  var raktdootSendQueue: Promise<void> | undefined;
+  var lifedropSendQueue: Promise<void> | undefined;
 }
 
 export function twilioEnabled(): boolean {
@@ -34,8 +34,8 @@ export async function sendWhatsApp({ to, body, requestId = null, simulated = fal
   // One at a time, because the sandbox rejects anything faster than one message
   // every three seconds. This queue lives in memory, so the app must run as a
   // single long-lived server rather than serverless functions.
-  const previous = globalThis.raktdootSendQueue ?? Promise.resolve();
-  globalThis.raktdootSendQueue = previous
+  const previous = globalThis.lifedropSendQueue ?? Promise.resolve();
+  globalThis.lifedropSendQueue = previous
     .then(() => deliver(message.id, to, body))
     .catch((error) => console.error("WhatsApp delivery failed", error))
     .then(() => sleep(config.twilio.sendSpacingMs));
